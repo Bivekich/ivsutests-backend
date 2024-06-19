@@ -2,7 +2,9 @@ import express from 'express'
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import cors from 'cors'
-import bannerRoutes from './banner/bannerRoutes'
+import bannerRoutes from './banner/banner.controller'
+import authRoutes from './auth/auth.controller'
+
 
 dotenv.config()
 
@@ -21,6 +23,7 @@ mongoose.connect(MONGO_URI)
 })
 
 app.use('/api/banner', bannerRoutes)
+app.use('/api/auth', authRoutes)
 
 app.get('/', (req, res) => {
     res.send('Hello IVSU!')

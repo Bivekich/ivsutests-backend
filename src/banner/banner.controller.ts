@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import Banner from './Banner'
+import Banner from './banner.model'
 
 const router = Router()
 
