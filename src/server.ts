@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import bannerRoutes from './banner/banner.controller'
 import authRoutes from './auth/auth.controller'
+import testsRoutes from './tests/test.controller'
 
 
 dotenv.config()
@@ -24,9 +25,10 @@ mongoose.connect(MONGO_URI)
 
 app.use('/api/banner', bannerRoutes)
 app.use('/api/auth', authRoutes)
+app.use('/api/test', testsRoutes)
 
 app.get('/', (req, res) => {
-    res.send('Hello IVSU!')
+    res.send('Hello IVSU Tests!')
 })
 
 app.listen(PORT, () => {

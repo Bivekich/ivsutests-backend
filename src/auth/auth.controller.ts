@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({message: 'Неверные учетные данные'})
         }
-        const token = jwt.sign({userId: user._id}, '123', {
+        const token = jwt.sign({userId: user._id, role: user.role}, '123', {
             expiresIn: '1h'
         })
         res.status(200).json({token})
